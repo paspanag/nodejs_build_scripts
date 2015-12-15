@@ -43,7 +43,11 @@ def init_project(project_dir):
         with cd(project_dir):
                 subprocess.call(["npm", "install"])
 
+def package_project(project_dir, app_name):
+        subprocess.call(["genisoimage", "-l" ,"-r" ,"-o" ,app_name , project_dir])
+
 if __name__ == "__main__":
         if not check_project(PROJECT_PATH):
                 clone_project(sys.argv[1], PROJECT_PATH)
         init_project(PROJECT_PATH)
+        package_project(PROJECT_PATH, "app.iso")
