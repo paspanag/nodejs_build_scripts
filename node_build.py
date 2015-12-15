@@ -56,6 +56,7 @@ def hash_project(project_dir):
 
 def package_with_binary(build_name, builds_dir, app_name, node_bin):
         with cd(builds_dir):
+                subprocess.call(["rm", "{0}.zip".format(build_name)])
                 subprocess.call(["zip", build_name, app_name, node_bin])
 
 if __name__ == "__main__":
