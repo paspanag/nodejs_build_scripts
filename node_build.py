@@ -45,6 +45,8 @@ def init_project(project_dir):
 
 def package_project(project_dir, app_name):
         subprocess.call(["genisoimage", "-l" ,"-r" ,"-o" ,app_name , project_dir])
+	subprocess.call(["mkdir", "-p", "app_builds"])
+	subprocess.call(["mv", app_name, "app_builds/"])
 
 def hash_project(project_dir):
         with cd(project_dir):
