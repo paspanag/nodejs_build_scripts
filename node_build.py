@@ -46,6 +46,10 @@ def init_project(project_dir):
 def package_project(project_dir, app_name):
         subprocess.call(["genisoimage", "-l" ,"-r" ,"-o" ,app_name , project_dir])
 
+def hash_project(project_dir):
+        with cd(project_dir):
+                return subprocess.check_output(["nix-hash", "."])
+
 if __name__ == "__main__":
         if not check_project(PROJECT_PATH):
                 clone_project(sys.argv[1], PROJECT_PATH)
