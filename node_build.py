@@ -57,11 +57,11 @@ def hash_project(project_dir):
 def package_with_binary(build_name, builds_dir, app_name, node_bin):
         with cd(builds_dir):
                 subprocess.call(["zip", build_name, app_name, node_bin])
-                
+
 if __name__ == "__main__":
         if not check_project(PROJECT_PATH):
                 clone_project(sys.argv[1], PROJECT_PATH)
         init_project(PROJECT_PATH)
-	app_name = "app.iso"
+        app_name = "app.iso"
         package_project(PROJECT_PATH, app_name, BUILDS_DIR)
-	package_with_binary("appAndNode", BUILDS_DIR, app_name, NODE_BIN)
+        package_with_binary("appAndNode", BUILDS_DIR, app_name, NODE_BIN)
