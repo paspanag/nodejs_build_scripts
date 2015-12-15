@@ -55,10 +55,9 @@ def hash_project(project_dir):
                 return subprocess.check_output(["nix-hash", "."])
 
 def package_with_binary(build_name, builds_dir, app_name, node_bin):
-	with cd(builds_dir):
-		subprocess.call(["zip", build_name, app_name, node_bin])
-	
-
+        with cd(builds_dir):
+                subprocess.call(["zip", build_name, app_name, node_bin])
+                
 if __name__ == "__main__":
         if not check_project(PROJECT_PATH):
                 clone_project(sys.argv[1], PROJECT_PATH)
