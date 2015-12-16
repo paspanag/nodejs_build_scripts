@@ -28,4 +28,4 @@ def get_app(github_user, github_project):
 
 if __name__ == "__main__":
     # get_app('paspanag', 'expressdemo')
-    app.run()
+    app.run(host='0.0.0.0')
