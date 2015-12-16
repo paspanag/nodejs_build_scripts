@@ -58,11 +58,13 @@ def package_with_binary(build_name, builds_dir, app_name, node_bin):
         with cd(builds_dir):
                 subprocess.call(["rm", "{0}.zip".format(build_name)])
                 subprocess.call(["zip", build_name, app_name, node_bin])
+        return "{0}/{1}.zip".format(builds_dir,build_name)
 
 if __name__ == "__main__":
         if not check_project(PROJECT_PATH):
                 clone_project(sys.argv[1], PROJECT_PATH)
         init_project(PROJECT_PATH)
         app_name = "app.iso"
+        app_tup = "exp_demo"
         package_project(PROJECT_PATH, app_name, BUILDS_DIR)
-        package_with_binary("appAndNode", BUILDS_DIR, app_name, NODE_BIN)
+        print(package_with_binary(app_tup, BUILDS_DIR, app_name, NODE_BIN))
